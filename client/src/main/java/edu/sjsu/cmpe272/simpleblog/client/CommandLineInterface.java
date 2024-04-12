@@ -19,7 +19,7 @@ import static edu.sjsu.cmpe272.simpleblog.client.SaveToINI.retriveUserId;
 @Component
 @Command(name = "cli", mixinStandardHelpOptions = true, subcommands = {CommandLineInterface.Post.class, CommandLineInterface.CreateUser.class,CommandLineInterface.ListMessages.class})
 public class CommandLineInterface {
-    static String base_url = "http://aneeshgarray.crabdance.com/"; // base URL for the server
+    static String base_url = "https://aneeshgarray.crabdance.com/"; // base URL for the server
 
 
     @Component
