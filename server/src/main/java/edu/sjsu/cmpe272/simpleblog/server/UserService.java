@@ -3,6 +3,7 @@ package edu.sjsu.cmpe272.simpleblog.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -13,6 +14,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class UserService {
     public static Map<String, String> userPublicKeys = new HashMap<>();
@@ -42,6 +44,7 @@ public class UserService {
     }
 
     public static PrivateKey getPrivateKeyFromString(String key) throws Exception {
+        log.debug("getPrivateKeyFromString");
         byte[] byteKey = Base64.getDecoder().decode(key.getBytes());
         PKCS8EncodedKeySpec PKCS8privateKey = new PKCS8EncodedKeySpec(byteKey);
         KeyFactory kf = KeyFactory.getInstance("RSA");
@@ -50,6 +53,7 @@ public class UserService {
     }
 
     public String getPublicKeyByUsername(String username) {
+        log.debug("getPublicKeyByUsername");
         if(userPublicKeys.containsKey(username)){
             return userPublicKeys.get(username);
         }

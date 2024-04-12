@@ -45,6 +45,7 @@ public class MessageController {
 
     @PostMapping("/list")
     public ResponseEntity<?> listMessages(@RequestBody Map<String, Object> params) {
+        log.debug("list messages, params ="+params);
         Integer limit = (Integer) params.getOrDefault("countnumber", 10);
 //        Integer next = (Integer) params.getOrDefault("next",-1);
         Integer starting_id = (Integer) params.getOrDefault("starting_id",-1);
