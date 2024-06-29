@@ -10,4 +10,6 @@ public class Welcome {
     ResponseEntity<String> getWelcome() {
         return ResponseEntity.ok("Welcome!");
     }
+
+
 }
